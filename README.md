@@ -1,6 +1,6 @@
 # ExDnsClient
 
-A rudimentary DNS client.  Thin wrapper around erlang's `inet_res` library
+A rudimentary DNS client. Thin wrapper around erlang's `inet_res` library
 
 ## Installation
 
