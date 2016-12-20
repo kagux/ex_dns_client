@@ -3,7 +3,7 @@ defmodule ExDnsClient.Mixfile do
 
   def project do
     [app: :ex_dns_client,
-     version: "0.1.0",
+     version: "0.1.1",
      elixir: "~> 1.3",
      description: "A rudimentary DNS client. Thin wrapper around erlang's `inet_res` library",
      name: "ExDnsClient",
