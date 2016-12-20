@@ -15,6 +15,7 @@ defmodule ExDnsClient do
 
   @doc """
   Resolves the DNS data for the record of the specified type and class for the specified name.
+
   On success, filters out the answer records with the correct Class and Type, and returns a list of their data fields.
   So, a lookup for type any gives an empty answer, as the answer records have specific types that are not any.
   An empty answer or a failed lookup returns an empty list.
