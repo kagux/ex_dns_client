@@ -35,11 +35,11 @@ defmodule ExDnsClient do
   @type dns_data :: [String.t] | [ip4_address] | [ip6_address]
   @spec lookup(name :: String.t, opts :: lookup_opts) :: dns_data
   def lookup(name, opts \\ []) do
-    class = opts |> Keyword.get(:class, :in)
-    type = opts |> Keyword.get(:type, :a)
+    {class, opts} = opts |> Keyword.pop_first(:class, :in)
+    {type, opts} = opts |> Keyword.pop_first(:type, :a)
     name
     |> to_charlist
-    |> :inet_res.lookup(class, type)
+    |> :inet_res.lookup(class, type, opts)
     |> Enum.map(&charlist_to_string/1)
   end
 

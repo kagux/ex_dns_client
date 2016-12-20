@@ -10,4 +10,10 @@ defmodule ExDnsClientTest do
     result = ExDnsClient.lookup("example.com", type: :ns) |> MapSet.new
     assert result == expected
   end
+
+  test "lookup/2 accepts same options as inet_res" do
+    ip = {192, 168, 1, 1}
+    DnsServer.add_response("example.com", :a, ip)
+    assert ExDnsClient.lookup("example.com", nameservers: [{{127, 0, 0, 1}, 8053}]) == [ip]
+  end
 end
